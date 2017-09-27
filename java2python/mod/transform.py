@@ -33,6 +33,12 @@ def keywordSafeIdent(node, config, invalid=invalidPythonNames()):
     if ident in invalid:
         node.token.text = '%s_' % ident
 
+def deleteGenericTypeArgList(node, config, invalid=invalidPythonNames()):
+    """Remove the parametrized types of the form T<T1, T2, ...> so they get
+    translated only to A.
+    """
+    while node.getChildCount() > 0:
+        node.deleteChild(0)
 
 def makeConst(v):
     """ Returns a closure that indiscriminately changes node text to a value. """

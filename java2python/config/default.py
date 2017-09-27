@@ -149,6 +149,7 @@ astTransforms = [
     (Type('FALSE'), transform.false2False),
     (Type('TRUE'),  transform.true2True),
     (Type('IDENT'), transform.keywordSafeIdent),
+    (Type('GENERIC_TYPE_ARG_LIST'), transform.deleteGenericTypeArgList),
 
     (Type('DECIMAL_LITERAL'), transform.syntaxSafeDecimalLiteral),
     (Type('FLOATING_POINT_LITERAL'), transform.syntaxSafeFloatLiteral),
